@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aiyla’s Cookie Project</title>
+
+  <style>
+    html, body {
+      margin: 0;
+      font-family: "Comic Sans MS","Comic Sans", Arial, sans-serif;
+      font-style: normal;
+      scroll-behavior: smooth;
+      background: #fff6dd;
+      color: #1a1a1a;
+    }
+
+    * { box-sizing: border-box; }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 2px solid #000;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+
+    header b {
+      font-size: 20px;
+    }
+
+    nav a {
+      margin-left: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid #000;
+      padding: 6px 12px;
+      border-radius: 999px;
+      color: #000;
+      background: #fff;
+    }
+
+    section {
+      max-width: 900px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 56px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 20px 40px rgba(0,0,0,.12);
+      margin-top: 32px;
+    }
+
+    ul {
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 16px 28px;
+      background: #000;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <b>🍪 Aiyla’s Cookie Project</b>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#ingredients">Ingredients</a>
+    <a href="#impact">Impact</a>
+    <a href="#order">Order</a>
+  </nav>
+</header>
+
+<section id="home">
+  <h1>Classic Chocolate Cookie</h1>
+  <p>
+    One cookie. One mission.<br>
+    <b>30% of profit supports animals in Sumatra.</b>
+  </p>
+
+  <div class="card">
+    <p>
+      Soft, chewy, chocolate-loaded cookies made in small batches using
+      real premium ingredients.
+    </p>
+  </div>
+</section>
+
+<section id="ingredients">
+  <h2>Ingredients</h2>
+
+  <div class="card">
+    <ul>
+      <li><b>Anchor Butter</b> — rich and creamy texture</li>
+      <li><b>Ladame Vanilla Bean Extract</b> — real vanilla aroma</li>
+      <li><b>Ladang Lima Cassava Flour</b> — light and chewy</li>
+      <li><b>Brown Sugar</b> — caramel depth</li>
+      <li><b>Caster Sugar (Aromanis)</b> — balanced sweetness</li>
+      <li><b>Milk Life</b> — softness and richness</li>
+      <li><b>Van Houten Chocolate</b> — deep cocoa taste</li>
+    </ul>
+  </div>
+</section>
+
+<section id="impact">
+  <h2>Impact</h2>
+
+  <div class="card">
+    <p>
+      Every order matters. <b>30% of profit</b> from each cookie supports
+      animals in <b>Sumatra</b>.
+    </p>
+  </div>
+</section>
+
+<section id="order">
+  <h2>Order</h2>
+
+  <div class="card">
+    <p>Click the button below to order.</p>
+
+    <a class="btn"
+       href="https://forms.gle/y8wSk6Y4nwLma9kMA"
+       target="_blank">
+       Order Now 🍪
+    </a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Aiyla’s Cookie Project • Made with 🍪 + 🐾
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
