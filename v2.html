@@ -1,219 +1,841 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Aiyla’s Cookie Project — V2 🍪</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aiyla Cookies — Classic Chocolate Cookie</title>
 
   <style>
+    /* ===============================
+       AYILA COOKIES — FULL REDO
+       Style: portal-like, cute, warm
+       Font: Comic Sans everywhere
+       Palette: brown + beige + tiny green
+       =============================== */
+
     :root{
-      --bg:#f3efe8;          /* beige background */
-      --card:#fbf9f6;        /* soft cream */
-      --brown:#6b4f3a;       /* cocoa brown */
-      --dark:#3a2a1f;        /* dark chocolate */
-      --muted:#7a6a5c;       /* soft brown-grey */
-      --line:rgba(0,0,0,.12);
-      --shadow:0 14px 30px rgba(0,0,0,.12);
-      --radius:22px;
+      --bg: #f6efe6;          /* beige background */
+      --paper: #fffaf2;       /* soft panel beige */
+      --paper2:#ffffff;       /* white panel */
+      --brown:#6b4f3a;        /* main brown */
+      --brown2:#4a3425;       /* dark brown */
+      --caramel:#c49a6c;      /* cookie/caramel accent */
+      --line:#ead9c7;         /* borders */
+      --shadow: 0 16px 34px rgba(107,79,58,.18);
+
+      /* tiny green (ONLY for impact/animals) */
+      --green:#5f8f6b;
+      --green-soft:#e7f2ea;
+
+      --radius:18px;
+      --radius2:24px;
+
+      --max: 1120px;
     }
 
+    /* Force Comic Sans everywhere + prevent “cursive” look */
+    *{
+      box-sizing:border-box;
+      font-family:"Comic Sans MS","Comic Sans",system-ui,Arial,sans-serif !important;
+      font-style: normal !important;
+    }
+    html,body{ height:100%; }
     body{
       margin:0;
-      background:var(--bg);
-      font-family:"Comic Sans MS","Comic Sans",Arial,sans-serif;
-      color:var(--dark);
+      color:var(--brown2);
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(196,154,108,.22), transparent 60%),
+        radial-gradient(900px 500px at 90% 30%, rgba(95,143,107,.14), transparent 60%),
+        var(--bg);
+      overflow-x:hidden;
     }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:16px; }
 
-    /* Header */
-    header{
-      background:var(--card);
-      padding:28px 20px;
-      text-align:center;
-      font-size:32px;
-      font-weight:bold;
-      border-bottom:1px solid var(--line);
-    }
-
-    /* Nav */
-    nav{
+    /* ===============================
+       TOP NAV (like reference)
+       =============================== */
+    .topbar{
       position:sticky;
       top:0;
-      background:rgba(251,249,246,.95);
-      backdrop-filter:blur(8px);
+      z-index:50;
+      background:rgba(255,250,242,.88);
+      backdrop-filter: blur(10px);
+      border-bottom:3px solid var(--brown);
+    }
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:12px 16px;
       display:flex;
-      justify-content:center;
-      gap:18px;
-      padding:14px;
-      border-bottom:1px solid var(--line);
-      z-index:10;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:240px;
+    }
+    .logo{
+      width:44px; height:44px;
+      border-radius:16px;
+      background: linear-gradient(135deg, var(--brown), var(--caramel));
+      box-shadow: 0 12px 26px rgba(107,79,58,.18);
+      display:grid; place-items:center;
+      border:2px solid rgba(255,255,255,.55);
+    }
+    .logo span{ font-size:20px; transform:translateY(-1px); }
+    .brand-title{ line-height:1.1; }
+    .brand-title .name{
+      font-size:15px;
+      font-weight:900;
+      margin:0;
+    }
+    .brand-title .tagline{
+      margin:0;
+      font-size:12px;
+      opacity:.85;
     }
 
-    nav a{
-      text-decoration:none;
-      font-weight:bold;
-      color:var(--brown);
-      padding:6px 14px;
+    .nav{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .nav a{
+      padding:9px 12px;
       border-radius:999px;
+      border:2px dashed transparent;
+      background:transparent;
+      font-size:13px;
+      opacity:.95;
+    }
+    .nav a:hover{
+      border-color: var(--line);
+      background: rgba(196,154,108,.10);
     }
 
-    nav a:hover{
-      background:rgba(107,79,58,.1);
+    .search{
+      margin-left:auto;
+      display:flex;
+      gap:8px;
+      align-items:center;
+      min-width:260px;
+      flex:1;
+      justify-content:flex-end;
     }
-
-    /* Layout */
-    section{
-      max-width:900px;
-      margin:auto;
-      padding:60px 20px;
-    }
-
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:34px;
-      margin-bottom:36px;
-      box-shadow:var(--shadow);
-      border:1px solid var(--line);
-    }
-
-    h1{
-      font-size:42px;
-      margin-bottom:10px;
-      text-align:center;
-    }
-
-    h2{
-      font-size:30px;
-      margin-top:0;
-      color:var(--brown);
-    }
-
-    p{
-      font-size:19px;
-      line-height:1.8;
-      color:var(--muted);
-    }
-
-    ul{
-      font-size:19px;
-      line-height:1.8;
-      color:var(--muted);
-      padding-left:20px;
-    }
-
-    li{ margin-bottom:10px; }
-
-    .badge{
-      display:inline-block;
-      background:rgba(107,79,58,.1);
-      color:var(--brown);
-      padding:8px 14px;
+    .search input{
+      width: min(360px, 100%);
+      padding:10px 12px;
       border-radius:999px;
-      font-weight:bold;
-      font-size:14px;
-      margin-bottom:16px;
+      border:2px solid var(--line);
+      background:var(--paper2);
+      outline:none;
+      font-size:13px;
     }
-
     .btn{
-      display:inline-block;
-      background:var(--brown);
-      color:#fff;
-      padding:16px 30px;
+      cursor:pointer;
+      padding:10px 12px;
       border-radius:999px;
-      text-decoration:none;
-      font-size:18px;
-      font-weight:bold;
-      margin-top:12px;
+      border:0;
+      background: var(--brown);
+      color:white;
+      font-weight:900;
+      font-size:13px;
+      box-shadow: 0 10px 22px rgba(107,79,58,.20);
+      white-space:nowrap;
+    }
+    .btn:hover{ filter:brightness(.95); transform: translateY(-1px); }
+    .btn:active{ transform: translateY(0); }
+
+    /* ===============================
+       DONATION BADGE (green accent)
+       =============================== */
+    .impact-badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background: var(--green-soft);
+      border:2px solid var(--green);
+      color:#2f4f39;
+      font-size:12px;
+      font-weight:900;
+    }
+    .impact-dot{
+      width:10px; height:10px;
+      border-radius:999px;
+      background: var(--green);
+      box-shadow: 0 0 0 5px rgba(95,143,107,.18);
     }
 
-    .btn:hover{
-      opacity:.9;
+    /* ===============================
+       LAYOUT: sidebar + main (portal)
+       =============================== */
+    .layout{
+      display:grid;
+      grid-template-columns: 285px 1fr;
+      gap:14px;
+      margin-top:14px;
     }
 
-    footer{
-      text-align:center;
+    .panel{
+      background: rgba(255,250,242,.92);
+      border:2px solid var(--line);
+      border-radius: var(--radius2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    /* Sidebar */
+    .sidebar{
+      position:sticky;
+      top:86px;
+      align-self:start;
+    }
+    .side-head{
+      padding:16px;
+      border-bottom:2px solid var(--line);
+      background: linear-gradient(180deg, rgba(196,154,108,.12), transparent);
+    }
+    .side-head h3{
+      margin:10px 0 6px;
+      font-size:15px;
+    }
+    .side-head p{
+      margin:0;
+      font-size:12px;
+      opacity:.85;
+      line-height:1.4;
+    }
+    .side-links{
+      padding:10px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .side-links a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:11px 12px;
+      border-radius:16px;
+      background:#fff;
+      border:2px dashed var(--line);
+      font-size:13px;
+    }
+    .side-links a:hover{
+      border-color: var(--brown);
+      background: rgba(196,154,108,.12);
+    }
+    .pill{
+      font-size:11px;
+      padding:5px 8px;
+      border-radius:999px;
+      border:2px solid var(--line);
+      background: var(--paper);
+      opacity:.95;
+    }
+
+    /* Main hero */
+    .hero{
+      padding:16px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:12px;
+      align-items:stretch;
+    }
+    .hero-card{
+      border-radius: var(--radius2);
+      border:2px solid var(--line);
+      background:
+        radial-gradient(700px 280px at 25% 20%, rgba(196,154,108,.25), transparent 60%),
+        linear-gradient(135deg, #ffffff, #fff6ea);
+      padding:16px;
+      min-height:240px;
+      position:relative;
+    }
+    .big-title{
+      margin:10px 0 6px;
+      font-size:34px;
+      letter-spacing:.2px;
+      font-weight:900;
+    }
+    .subtitle{
+      margin:0 0 14px;
       font-size:14px;
-      color:var(--muted);
-      padding:40px 20px;
+      line-height:1.55;
+      opacity:.9;
+      max-width:55ch;
+    }
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:8px;
+      align-items:center;
+    }
+    .btn2{
+      cursor:pointer;
+      padding:10px 12px;
+      border-radius:999px;
+      border:2px dashed var(--brown);
+      background: #fff;
+      color: var(--brown2);
+      font-weight:900;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .btn2:hover{ background: rgba(196,154,108,.14); }
+
+    .mini{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .mini-card{
+      border-radius: var(--radius2);
+      border:2px solid var(--line);
+      background: #fff;
+      padding:12px;
+    }
+    .mini-k{ font-size:12px; opacity:.8; }
+    .mini-v{ font-size:18px; font-weight:900; margin-top:6px; }
+    .mini-s{ font-size:12px; opacity:.85; margin-top:6px; line-height:1.4; }
+
+    /* Content blocks grid */
+    .blocks{
+      padding:16px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .card{
+      border-radius: var(--radius2);
+      border:2px solid var(--line);
+      background:#fff;
+      padding:14px;
+    }
+    .card h3{
+      margin:0 0 10px;
+      font-size:16px;
+    }
+    .small{
+      font-size:13px;
+      opacity:.9;
+      line-height:1.55;
+    }
+    ul{ margin:10px 0 0; padding-left:18px; }
+    li{ margin:6px 0; }
+
+    /* Ingredients table */
+    table{
+      width:100%;
+      border-collapse:separate;
+      border-spacing:0;
+      overflow:hidden;
+      border-radius:16px;
+      border:2px solid var(--line);
+      margin-top:10px;
+    }
+    th,td{
+      padding:10px 12px;
+      border-bottom:2px solid rgba(234,217,199,.55);
+      text-align:left;
+      vertical-align:top;
+      font-size:13px;
+    }
+    th{
+      background: rgba(196,154,108,.18);
+      font-size:12px;
+      letter-spacing:.2px;
+      text-transform:uppercase;
+    }
+    tr:last-child td{ border-bottom:none; }
+
+    .tags{
+      display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;
+    }
+    .tag{
+      padding:6px 10px;
+      border-radius:999px;
+      border:2px solid var(--brown);
+      background: rgba(196,154,108,.10);
+      font-size:12px;
+      font-weight:900;
+    }
+
+    /* Order section */
+    .order{
+      padding:16px;
+    }
+    .order h2{ margin:10px 0 6px; font-size:22px; }
+    .notice{
+      margin-top:10px;
+      padding:12px 12px;
+      border-radius:16px;
+      border:2px dashed var(--green);
+      background: var(--green-soft);
+      color:#2f4f39;
+      font-size:12px;
+      line-height:1.45;
+      font-weight:800;
+    }
+    .form{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    label{ font-size:12px; opacity:.85; font-weight:900; }
+    input, select, textarea{
+      width:100%;
+      padding:11px 12px;
+      border-radius:16px;
+      border:2px solid var(--line);
+      background: var(--paper);
+      outline:none;
+      font-size:13px;
+    }
+    textarea{ min-height:110px; resize:vertical; grid-column:1/-1; }
+    .full{ grid-column:1/-1; }
+    .form-actions{
+      grid-column:1/-1;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top:4px;
+    }
+    .link{
+      font-size:12px;
+      font-weight:900;
+      border-bottom:2px dashed var(--brown);
+      padding-bottom:2px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top:12px;
+      padding:14px 16px;
+      border-radius: var(--radius2);
+      border:2px solid var(--line);
+      background: rgba(196,154,108,.16);
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px 12px;
+      justify-content:space-between;
+      align-items:center;
+      font-size:12px;
+      font-weight:900;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .layout{ grid-template-columns: 1fr; }
+      .sidebar{ position:relative; top:auto; }
+      .hero-grid{ grid-template-columns: 1fr; }
+      .blocks{ grid-template-columns: 1fr; }
+      .form{ grid-template-columns: 1fr; }
+      .search{ justify-content:flex-start; width:100%; margin-left:0; }
+      .brand{ min-width: 0; }
     }
   </style>
 </head>
 
 <body>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"><span>🍪</span></div>
+        <div class="brand-title">
+          <p class="name">Aiyla Cookies</p>
+          <p class="tagline">Classic Chocolate Cookie • 45g • handmade</p>
+        </div>
+      </div>
 
-<header>
-  🍪 Aiyla’s Cookie Project
-</header>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#home">Home</a>
+        <a href="#ingredients">Ingredients</a>
+        <a href="#order">Order</a>
+        <a href="#impact">Sumatra</a>
+      </nav>
 
-<nav>
-  <a href="#about">About</a>
-  <a href="#product">Product</a>
-  <a href="#ingredients">Ingredients</a>
-  <a href="#impact">Impact</a>
-  <a href="#order">Order</a>
-</nav>
-
-<section id="about">
-  <h1>Classic Chocolate Cookie</h1>
-  <p style="text-align:center;">
-    One cookie. One mission.<br>
-    <b>30% of profit supports animals in Sumatra 🐾</b>
-  </p>
-</section>
-
-<section id="product">
-  <div class="card">
-    <span class="badge">Signature Cookie</span>
-    <h2>Product Details</h2>
-    <p><b>Weight:</b> 45g per cookie</p>
-    <p>
-      Soft, chewy, and rich in chocolate.
-      Made in small batches with carefully chosen ingredients.
-    </p>
+      <div class="search">
+        <input id="siteSearch" type="search" placeholder="Search… (try: ingredients, order, Sumatra)" />
+        <button class="btn" id="searchBtn" type="button">Search</button>
+      </div>
+    </div>
   </div>
-</section>
 
-<section id="ingredients">
-  <div class="card">
-    <h2>Ingredients</h2>
-    <ul>
-      <li><b>Anchor Butter</b> — rich and creamy texture</li>
-      <li><b>La Dame Vanilla Bean Extract</b> — deep natural aroma</li>
-      <li><b>Ladang Lima Cassava Flour</b> — light and chewy bite</li>
-      <li><b>Brown Sugar</b> — caramel depth</li>
-      <li><b>Caster Sugar (Aromanis)</b> — smooth sweetness</li>
-      <li><b>Milk Life</b> — softness and richness</li>
-      <li><b>Van Houten Chocolate</b> — strong cocoa flavor</li>
-    </ul>
-  </div>
-</section>
+  <main class="wrap" id="home">
+    <div class="layout">
 
-<section id="impact">
-  <div class="card">
-    <h2>Impact</h2>
-    <p>
-      Every order contributes to something bigger.
-      <b>30% of profit</b> goes directly to supporting animals in <b>Sumatra</b>.
-    </p>
-  </div>
-</section>
+      <!-- SIDEBAR -->
+      <aside class="panel sidebar" aria-label="Quick links panel">
+        <div class="side-head">
+          <div class="impact-badge" title="We show this everywhere on purpose.">
+            <span class="impact-dot"></span>
+            <span>30% profit → animals in Sumatra</span>
+          </div>
+          <h3>Quick Links</h3>
+          <p>This is the portal-style menu (like your reference), but cookie-cute.</p>
+        </div>
 
-<section id="order">
-  <div class="card">
-    <h2>Order</h2>
-    <p>Click below to order cookies:</p>
+        <div class="side-links">
+          <a href="#order">🧾 Order now <span class="pill">fast</span></a>
+          <a href="#ingredients">🧈 Ingredients <span class="pill">detailed</span></a>
+          <a href="#sizes">⚖️ Size & weight <span class="pill">45g</span></a>
+          <a href="#storage">🧊 Storage <span class="pill">tips</span></a>
+          <a href="#impact">🌿 Animals + Sumatra <span class="pill">30%</span></a>
+          <a href="#contact">☎️ Contact <span class="pill">DM</span></a>
+        </div>
+      </aside>
 
-    <a class="btn"
-       href="https://forms.gle/M27qduKAX32Jy1a4A"
-       target="_blank">
-       Order via Google Form
-    </a>
-  </div>
-</section>
+      <!-- MAIN CONTENT -->
+      <section class="panel">
+        <!-- HERO -->
+        <section class="hero">
+          <div class="hero-grid">
+            <div class="hero-card">
+              <div class="impact-badge">
+                <span class="impact-dot"></span>
+                <span>30% profit → animals in Sumatra</span>
+              </div>
 
-<footer>
-  © Aiyla’s Cookie Project · Made with 🍪 + 🐾
-</footer>
+              <h1 class="big-title">Classic Chocolate Cookie</h1>
+              <p class="subtitle">
+                Thick, soft-centered cookies with deep chocolate flavor.
+                Made using your premium ingredients (listed clearly below) —
+                and every order supports animals in Sumatra.
+              </p>
 
+              <div class="hero-actions">
+                <a class="btn" href="#order">Order in 30 seconds</a>
+                <a class="btn2" href="#ingredients">See ingredients</a>
+                <a class="btn2" href="#impact">Why Sumatra?</a>
+              </div>
+            </div>
+
+            <div class="mini">
+              <div class="mini-card">
+                <div class="mini-k">Cookie weight</div>
+                <div class="mini-v">45g each</div>
+                <div class="mini-s">Big cookie, bakery style.</div>
+              </div>
+              <div class="mini-card">
+                <div class="mini-k">Menu</div>
+                <div class="mini-v">1 flavor</div>
+                <div class="mini-s">Simple = consistent quality.</div>
+              </div>
+              <div class="mini-card">
+                <div class="mini-k">Impact</div>
+                <div class="mini-v">30% donation</div>
+                <div class="mini-s">Green accent = Sumatra/animals.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- BLOCKS -->
+        <section class="blocks" aria-label="Portal blocks">
+
+          <div class="card" id="sizes">
+            <h3>⚖️ Size & weight</h3>
+            <div class="small">
+              Each cookie is <strong>45 grams</strong>. Thick and satisfying.
+            </div>
+            <div class="tags">
+              <span class="tag">🍪 45g</span>
+              <span class="tag">🎁 gift-friendly</span>
+              <span class="tag">📦 easy to pack</span>
+            </div>
+          </div>
+
+          <div class="card" id="storage">
+            <h3>🧊 Storage (so it stays yummy)</h3>
+            <div class="small">
+              <ul>
+                <li>Room temp: 2–3 days (airtight container)</li>
+                <li>Fridge: up to 7 days</li>
+                <li>Freezer: up to 30 days</li>
+                <li>Warm it: 8–12 seconds for gooey center</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card" id="ingredients">
+            <h3>🧈 Ingredients (detailed)</h3>
+            <div class="small">
+              Here’s the ingredient list written clearly for customers.
+            </div>
+
+            <table role="table" aria-label="Ingredients table">
+              <thead>
+                <tr>
+                  <th>Ingredient</th>
+                  <th>Why it’s used</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Ladame Vanilla Bean Extract</strong></td>
+                  <td>Real vanilla aroma for warm “bakery” taste.</td>
+                </tr>
+                <tr>
+                  <td><strong>Anchor Butter</strong></td>
+                  <td>Rich flavor + soft, tender texture.</td>
+                </tr>
+                <tr>
+                  <td><strong>Ladang Lima Cassava Flour</strong></td>
+                  <td>Unique bite and helps the cookie stay thick.</td>
+                </tr>
+                <tr>
+                  <td><strong>Brown Sugar</strong></td>
+                  <td>Caramel notes + chewy center.</td>
+                </tr>
+                <tr>
+                  <td><strong>Caster Sugar (Aromanis)</strong></td>
+                  <td>Balanced sweetness and crisp edges.</td>
+                </tr>
+                <tr>
+                  <td><strong>Milk (Milk Life)</strong></td>
+                  <td>Richer dough and smoother flavor.</td>
+                </tr>
+                <tr>
+                  <td><strong>Chocolate (Van Houten)</strong></td>
+                  <td>Deep cocoa taste and chocolate richness.</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="notice">
+              🌿 <strong>Reminder:</strong> 30% of profit is donated to help animals in Sumatra.
+              <br/>⚠️ Allergens: contains dairy (butter, milk).
+            </div>
+          </div>
+
+          <div class="card" id="impact">
+            <h3>🌿 Animals + Sumatra (the promise)</h3>
+            <div class="small">
+              This is part of the brand, so it appears everywhere.
+              <ul>
+                <li><strong>30% of profit</strong> is donated to support animals in <strong>Sumatra</strong>.</li>
+                <li>We’ll post updates on Instagram (proof/receipts) in highlights.</li>
+              </ul>
+            </div>
+            <div class="tags">
+              <span class="tag" style="border-color:var(--green); background:var(--green-soft);">🐾 30% donation</span>
+              <span class="tag" style="border-color:var(--green); background:var(--green-soft);">🌳 Sumatra</span>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ORDER -->
+        <section class="order" id="order" aria-label="Order section">
+          <div class="impact-badge">
+            <span class="impact-dot"></span>
+            <span>30% profit → animals in Sumatra</span>
+          </div>
+
+          <h2>Order</h2>
+          <div class="small">
+            Fill the form → it will open a ready-to-send message so it <strong>always works</strong>.
+          </div>
+
+          <!-- OPTIONAL LINKS (replace these) -->
+          <div class="notice">
+            OPTIONAL: If you have a Google Form, replace <strong>YOUR_GOOGLE_FORM_LINK</strong> in the code.
+            <br/>OPTIONAL: Replace WhatsApp with your real number in <strong>https://wa.me/62XXXXXXXXXXX</strong>.
+          </div>
+
+          <form class="form" id="orderForm">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" required placeholder="Your name" />
+            </div>
+
+            <div>
+              <label for="contact">WhatsApp / Email</label>
+              <input id="contact" required placeholder="+62… or email" />
+            </div>
+
+            <div>
+              <label for="qty">Quantity</label>
+              <select id="qty" required>
+                <option value="1">1 cookie</option>
+                <option value="2">2 cookies</option>
+                <option value="4">4 cookies</option>
+                <option value="6">6 cookies</option>
+                <option value="12">12 cookies</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="delivery">Delivery</label>
+              <select id="delivery" required>
+                <option value="Meet-up">Meet-up</option>
+                <option value="Delivery">Delivery</option>
+                <option value="Pickup">Pickup</option>
+              </select>
+            </div>
+
+            <div class="full">
+              <label for="note">Notes (address / time)</label>
+              <textarea id="note" placeholder="Write your address + preferred time."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn" type="submit">Submit order</button>
+
+              <a class="btn2" href="YOUR_GOOGLE_FORM_LINK" target="_blank" rel="noreferrer">
+                Open Google Form (optional)
+              </a>
+
+              <a class="link" href="#ingredients">See ingredients again</a>
+            </div>
+
+            <div class="notice">
+              By ordering, you agree that <strong>30% of profit goes to animals in Sumatra</strong> 🐾
+            </div>
+          </form>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="order" id="contact" aria-label="Contact section">
+          <h2>Contact</h2>
+          <div class="small">
+            Questions? Message us.
+            <span style="display:inline-block; margin-left:8px;">
+              <span class="impact-badge"><span class="impact-dot"></span>30% profit → animals in Sumatra</span>
+            </span>
+          </div>
+
+          <div class="hero-actions" style="margin-top:12px;">
+            <!-- REPLACE THESE -->
+            <a class="btn2" href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
+            <a class="btn2" href="https://wa.me/62XXXXXXXXXXX" target="_blank" rel="noreferrer">WhatsApp</a>
+            <a class="btn2" href="mailto:youremail@example.com">Email</a>
+          </div>
+        </section>
+
+        <footer>
+          <div>© <span id="year"></span> Aiyla Cookies</div>
+          <div>🍪 Classic Chocolate Cookie • <span style="color:#2f4f39;">30% profit donated to animals in Sumatra</span></div>
+        </footer>
+
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Search highlight
+    const searchInput = document.getElementById("siteSearch");
+    const searchBtn = document.getElementById("searchBtn");
+
+    function clearHighlights(){
+      document.querySelectorAll("mark.__hl").forEach(m=>{
+        m.replaceWith(document.createTextNode(m.textContent));
+      });
+    }
+
+    function highlight(query){
+      if(!query) return;
+      const q = query.toLowerCase();
+      const badTags = new Set(["SCRIPT","STYLE","INPUT","TEXTAREA","SELECT","BUTTON"]);
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+        acceptNode: (node) => {
+          const p = node.parentElement;
+          if(!p) return NodeFilter.FILTER_REJECT;
+          if(badTags.has(p.tagName)) return NodeFilter.FILTER_REJECT;
+          if(!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+
+      let first = null;
+      const nodes = [];
+      while(walker.nextNode()) nodes.push(walker.currentNode);
+
+      nodes.forEach(node=>{
+        const text = node.nodeValue;
+        const idx = text.toLowerCase().indexOf(q);
+        if(idx === -1) return;
+
+        const before = document.createTextNode(text.slice(0, idx));
+        const match = document.createElement("mark");
+        match.className="__hl";
+        match.style.background="rgba(196,154,108,.45)";
+        match.style.border="2px solid rgba(107,79,58,.35)";
+        match.style.borderRadius="10px";
+        match.style.padding="0 4px";
+        match.textContent = text.slice(idx, idx + query.length);
+        const after = document.createTextNode(text.slice(idx + query.length));
+
+        const frag = document.createDocumentFragment();
+        frag.appendChild(before);
+        frag.appendChild(match);
+        frag.appendChild(after);
+        node.parentNode.replaceChild(frag, node);
+
+        if(!first) first = match;
+      });
+
+      if(first) first.scrollIntoView({behavior:"smooth", block:"center"});
+    }
+
+    searchBtn.addEventListener("click", ()=>{
+      clearHighlights();
+      highlight(searchInput.value.trim());
+    });
+    searchInput.addEventListener("keydown", (e)=>{
+      if(e.key === "Enter"){
+        e.preventDefault();
+        clearHighlights();
+        highlight(searchInput.value.trim());
+      }
+    });
+
+    // Order form: always works using email draft (mailto)
+    document.getElementById("orderForm").addEventListener("submit", (e)=>{
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const contact = document.getElementById("contact").value.trim();
+      const qty = document.getElementById("qty").value;
+      const delivery = document.getElementById("delivery").value;
+      const note = document.getElementById("note").value.trim();
+
+      const subject = encodeURIComponent("Cookie Order — Classic Chocolate Cookie");
+      const body = encodeURIComponent(
+`Hi! I want to order Aiyla Cookies 🍪
+
+Name: ${name}
+Contact: ${contact}
+Product: Classic Chocolate Cookie (45g each)
+Quantity: ${qty}
+Delivery: ${delivery}
+Notes: ${note || "-"}
+
+Reminder: 30% of profit goes to animals in Sumatra 🐾
+`
+      );
+
+      // CHANGE THIS to your email:
+      const toEmail = "youremail@example.com";
+      window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
+    });
+  </script>
 </body>
 </html>
