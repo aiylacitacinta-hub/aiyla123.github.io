@@ -6,76 +6,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    body{
-      margin:0;
-      background:#fff6dc;
-      font-family:"Comic Sans MS","Comic Sans",Arial,sans-serif;
-      color:#2b2b2b;
+    :root{
+      --bg:#f3efe8;          /* beige background */
+      --card:#fbf9f6;        /* soft cream */
+      --brown:#6b4f3a;       /* cocoa brown */
+      --dark:#3a2a1f;        /* dark chocolate */
+      --muted:#7a6a5c;       /* soft brown-grey */
+      --line:rgba(0,0,0,.12);
+      --shadow:0 14px 30px rgba(0,0,0,.12);
+      --radius:22px;
     }
 
+    body{
+      margin:0;
+      background:var(--bg);
+      font-family:"Comic Sans MS","Comic Sans",Arial,sans-serif;
+      color:var(--dark);
+    }
+
+    /* Header */
     header{
-      background:#ffde8a;
-      padding:24px;
+      background:var(--card);
+      padding:28px 20px;
       text-align:center;
       font-size:32px;
       font-weight:bold;
+      border-bottom:1px solid var(--line);
     }
 
+    /* Nav */
     nav{
-      background:white;
       position:sticky;
       top:0;
+      background:rgba(251,249,246,.95);
+      backdrop-filter:blur(8px);
       display:flex;
       justify-content:center;
-      gap:20px;
-      padding:12px;
-      border-bottom:2px dashed #ffb703;
+      gap:18px;
+      padding:14px;
+      border-bottom:1px solid var(--line);
+      z-index:10;
     }
 
     nav a{
       text-decoration:none;
       font-weight:bold;
-      color:#2b2b2b;
-      border:2px solid #ffb703;
+      color:var(--brown);
       padding:6px 14px;
       border-radius:999px;
     }
 
+    nav a:hover{
+      background:rgba(107,79,58,.1);
+    }
+
+    /* Layout */
     section{
       max-width:900px;
       margin:auto;
-      padding:50px 20px;
+      padding:60px 20px;
     }
 
     .card{
-      background:white;
-      border-radius:22px;
-      padding:30px;
-      margin-bottom:30px;
-      box-shadow:0 12px 30px rgba(0,0,0,.1);
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:34px;
+      margin-bottom:36px;
+      box-shadow:var(--shadow);
+      border:1px solid var(--line);
+    }
+
+    h1{
+      font-size:42px;
+      margin-bottom:10px;
+      text-align:center;
     }
 
     h2{
       font-size:30px;
       margin-top:0;
+      color:var(--brown);
+    }
+
+    p{
+      font-size:19px;
+      line-height:1.8;
+      color:var(--muted);
+    }
+
+    ul{
+      font-size:19px;
+      line-height:1.8;
+      color:var(--muted);
+      padding-left:20px;
+    }
+
+    li{ margin-bottom:10px; }
+
+    .badge{
+      display:inline-block;
+      background:rgba(107,79,58,.1);
+      color:var(--brown);
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:bold;
+      font-size:14px;
+      margin-bottom:16px;
     }
 
     .btn{
       display:inline-block;
-      background:#ffb703;
-      padding:16px 28px;
+      background:var(--brown);
+      color:#fff;
+      padding:16px 30px;
       border-radius:999px;
-      color:#2b2b2b;
       text-decoration:none;
       font-size:18px;
       font-weight:bold;
+      margin-top:12px;
+    }
+
+    .btn:hover{
+      opacity:.9;
     }
 
     footer{
       text-align:center;
       font-size:14px;
-      padding:30px;
-      opacity:.7;
+      color:var(--muted);
+      padding:40px 20px;
     }
   </style>
 </head>
@@ -83,35 +142,49 @@
 <body>
 
 <header>
-  🍪 Aiyla’s Cookie Project (V2)
+  🍪 Aiyla’s Cookie Project
 </header>
 
 <nav>
   <a href="#about">About</a>
   <a href="#product">Product</a>
+  <a href="#ingredients">Ingredients</a>
   <a href="#impact">Impact</a>
   <a href="#order">Order</a>
 </nav>
 
 <section id="about">
-  <div class="card">
-    <h2>About</h2>
-    <p>
-      This is the second version of Aiyla’s Cookie Project website.
-      Same cookies. Same mission. More “real website” layout.
-    </p>
-  </div>
+  <h1>Classic Chocolate Cookie</h1>
+  <p style="text-align:center;">
+    One cookie. One mission.<br>
+    <b>30% of profit supports animals in Sumatra 🐾</b>
+  </p>
 </section>
 
 <section id="product">
   <div class="card">
-    <h2>Classic Chocolate Cookie</h2>
-    <p><b>Weight:</b> 45g</p>
+    <span class="badge">Signature Cookie</span>
+    <h2>Product Details</h2>
+    <p><b>Weight:</b> 45g per cookie</p>
     <p>
-      Made with Anchor butter, La Dame vanilla bean extract,
-      cassava flour, brown sugar, caster sugar,
-      Milk Life milk, and Van Houten chocolate.
+      Soft, chewy, and rich in chocolate.
+      Made in small batches with carefully chosen ingredients.
     </p>
+  </div>
+</section>
+
+<section id="ingredients">
+  <div class="card">
+    <h2>Ingredients</h2>
+    <ul>
+      <li><b>Anchor Butter</b> — rich and creamy texture</li>
+      <li><b>La Dame Vanilla Bean Extract</b> — deep natural aroma</li>
+      <li><b>Ladang Lima Cassava Flour</b> — light and chewy bite</li>
+      <li><b>Brown Sugar</b> — caramel depth</li>
+      <li><b>Caster Sugar (Aromanis)</b> — smooth sweetness</li>
+      <li><b>Milk Life</b> — softness and richness</li>
+      <li><b>Van Houten Chocolate</b> — strong cocoa flavor</li>
+    </ul>
   </div>
 </section>
 
@@ -119,8 +192,8 @@
   <div class="card">
     <h2>Impact</h2>
     <p>
-      <b>30% of profit</b> supports animals in <b>Sumatra</b>.
-      Cookies that taste good and do good 🐾
+      Every order contributes to something bigger.
+      <b>30% of profit</b> goes directly to supporting animals in <b>Sumatra</b>.
     </p>
   </div>
 </section>
@@ -131,140 +204,7 @@
     <p>Click below to order cookies:</p>
 
     <a class="btn"
-       href="<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Aiyla’s Cookie Project — V2 🍪</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    body{
-      margin:0;
-      background:#fff6dc;
-      font-family:"Comic Sans MS","Comic Sans",Arial,sans-serif;
-      color:#2b2b2b;
-    }
-
-    header{
-      background:#ffde8a;
-      padding:24px;
-      text-align:center;
-      font-size:32px;
-      font-weight:bold;
-    }
-
-    nav{
-      background:white;
-      position:sticky;
-      top:0;
-      display:flex;
-      justify-content:center;
-      gap:20px;
-      padding:12px;
-      border-bottom:2px dashed #ffb703;
-    }
-
-    nav a{
-      text-decoration:none;
-      font-weight:bold;
-      color:#2b2b2b;
-      border:2px solid #ffb703;
-      padding:6px 14px;
-      border-radius:999px;
-    }
-
-    section{
-      max-width:900px;
-      margin:auto;
-      padding:50px 20px;
-    }
-
-    .card{
-      background:white;
-      border-radius:22px;
-      padding:30px;
-      margin-bottom:30px;
-      box-shadow:0 12px 30px rgba(0,0,0,.1);
-    }
-
-    h2{
-      font-size:30px;
-      margin-top:0;
-    }
-
-    .btn{
-      display:inline-block;
-      background:#ffb703;
-      padding:16px 28px;
-      border-radius:999px;
-      color:#2b2b2b;
-      text-decoration:none;
-      font-size:18px;
-      font-weight:bold;
-    }
-
-    footer{
-      text-align:center;
-      font-size:14px;
-      padding:30px;
-      opacity:.7;
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  🍪 Aiyla’s Cookie Project (V2)
-</header>
-
-<nav>
-  <a href="#about">About</a>
-  <a href="#product">Product</a>
-  <a href="#impact">Impact</a>
-  <a href="#order">Order</a>
-</nav>
-
-<section id="about">
-  <div class="card">
-    <h2>About</h2>
-    <p>
-      This is the second version of Aiyla’s Cookie Project website.
-      Same cookies. Same mission. More “real website” layout.
-    </p>
-  </div>
-</section>
-
-<section id="product">
-  <div class="card">
-    <h2>Classic Chocolate Cookie</h2>
-    <p><b>Weight:</b> 45g</p>
-    <p>
-      Made with Anchor butter, La Dame vanilla bean extract,
-      cassava flour, brown sugar, caster sugar,
-      Milk Life milk, and Van Houten chocolate.
-    </p>
-  </div>
-</section>
-
-<section id="impact">
-  <div class="card">
-    <h2>Impact</h2>
-    <p>
-      <b>30% of profit</b> supports animals in <b>Sumatra</b>.
-      Cookies that taste good and do good 🐾
-    </p>
-  </div>
-</section>
-
-<section id="order">
-  <div class="card">
-    <h2>Order</h2>
-    <p>Click below to order cookies:</p>
-
-    <a class="btn"
-       href="https://forms.gle/2XSG8MYi3YYFcLe98"
+       href="https://docs.google.com/forms"
        target="_blank">
        Order via Google Form
     </a>
@@ -272,19 +212,7 @@
 </section>
 
 <footer>
-  © Aiyla’s Cookie Project
-</footer>
-
-</body>
-</html>"
-       target="_blank">
-       Order via Google Form
-    </a>
-  </div>
-</section>
-
-<footer>
-  © Aiyla’s Cookie Project
+  © Aiyla’s Cookie Project · Made with 🍪 + 🐾
 </footer>
 
 </body>
