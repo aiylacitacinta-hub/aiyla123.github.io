@@ -7,33 +7,31 @@
 
   <style>
     /* ===============================
-       AYILA COOKIES — FULL REDO
-       Style: portal-like, cute, warm
+       AYILA COOKIES — FULL REDO (FINAL)
        Font: Comic Sans everywhere
-       Palette: brown + beige + tiny green
+       Palette: brown + beige + tiny green (impact)
+       Layout: portal-style (like reference)
+       Order: Email + Google Form (NO WhatsApp)
        =============================== */
 
     :root{
-      --bg: #f6efe6;          /* beige background */
-      --paper: #fffaf2;       /* soft panel beige */
-      --paper2:#ffffff;       /* white panel */
-      --brown:#6b4f3a;        /* main brown */
-      --brown2:#4a3425;       /* dark brown */
-      --caramel:#c49a6c;      /* cookie/caramel accent */
-      --line:#ead9c7;         /* borders */
+      --bg: #f6efe6;
+      --paper: #fffaf2;
+      --paper2:#ffffff;
+      --brown:#6b4f3a;
+      --brown2:#4a3425;
+      --caramel:#c49a6c;
+      --line:#ead9c7;
       --shadow: 0 16px 34px rgba(107,79,58,.18);
 
-      /* tiny green (ONLY for impact/animals) */
       --green:#5f8f6b;
       --green-soft:#e7f2ea;
 
       --radius:18px;
       --radius2:24px;
-
       --max: 1120px;
     }
 
-    /* Force Comic Sans everywhere + prevent “cursive” look */
     *{
       box-sizing:border-box;
       font-family:"Comic Sans MS","Comic Sans",system-ui,Arial,sans-serif !important;
@@ -52,9 +50,7 @@
     a{ color:inherit; text-decoration:none; }
     .wrap{ max-width:var(--max); margin:0 auto; padding:16px; }
 
-    /* ===============================
-       TOP NAV (like reference)
-       =============================== */
+    /* TOP BAR */
     .topbar{
       position:sticky;
       top:0;
@@ -109,7 +105,6 @@
       padding:9px 12px;
       border-radius:999px;
       border:2px dashed transparent;
-      background:transparent;
       font-size:13px;
       opacity:.95;
     }
@@ -151,9 +146,7 @@
     .btn:hover{ filter:brightness(.95); transform: translateY(-1px); }
     .btn:active{ transform: translateY(0); }
 
-    /* ===============================
-       DONATION BADGE (green accent)
-       =============================== */
+    /* IMPACT BADGE */
     .impact-badge{
       display:inline-flex;
       gap:8px;
@@ -173,16 +166,13 @@
       box-shadow: 0 0 0 5px rgba(95,143,107,.18);
     }
 
-    /* ===============================
-       LAYOUT: sidebar + main (portal)
-       =============================== */
+    /* LAYOUT */
     .layout{
       display:grid;
       grid-template-columns: 285px 1fr;
       gap:14px;
       margin-top:14px;
     }
-
     .panel{
       background: rgba(255,250,242,.92);
       border:2px solid var(--line);
@@ -191,7 +181,7 @@
       overflow:hidden;
     }
 
-    /* Sidebar */
+    /* SIDEBAR */
     .sidebar{
       position:sticky;
       top:86px;
@@ -241,10 +231,8 @@
       opacity:.95;
     }
 
-    /* Main hero */
-    .hero{
-      padding:16px;
-    }
+    /* HERO */
+    .hero{ padding:16px; }
     .hero-grid{
       display:grid;
       grid-template-columns: 1.25fr .75fr;
@@ -259,12 +247,10 @@
         linear-gradient(135deg, #ffffff, #fff6ea);
       padding:16px;
       min-height:240px;
-      position:relative;
     }
     .big-title{
       margin:10px 0 6px;
       font-size:34px;
-      letter-spacing:.2px;
       font-weight:900;
     }
     .subtitle{
@@ -294,11 +280,7 @@
     }
     .btn2:hover{ background: rgba(196,154,108,.14); }
 
-    .mini{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
+    .mini{ display:flex; flex-direction:column; gap:10px; }
     .mini-card{
       border-radius: var(--radius2);
       border:2px solid var(--line);
@@ -309,7 +291,7 @@
     .mini-v{ font-size:18px; font-weight:900; margin-top:6px; }
     .mini-s{ font-size:12px; opacity:.85; margin-top:6px; line-height:1.4; }
 
-    /* Content blocks grid */
+    /* BLOCKS */
     .blocks{
       padding:16px;
       display:grid;
@@ -322,19 +304,12 @@
       background:#fff;
       padding:14px;
     }
-    .card h3{
-      margin:0 0 10px;
-      font-size:16px;
-    }
-    .small{
-      font-size:13px;
-      opacity:.9;
-      line-height:1.55;
-    }
+    .card h3{ margin:0 0 10px; font-size:16px; }
+    .small{ font-size:13px; opacity:.9; line-height:1.55; }
     ul{ margin:10px 0 0; padding-left:18px; }
     li{ margin:6px 0; }
 
-    /* Ingredients table */
+    /* TABLE */
     table{
       width:100%;
       border-collapse:separate;
@@ -354,14 +329,11 @@
     th{
       background: rgba(196,154,108,.18);
       font-size:12px;
-      letter-spacing:.2px;
       text-transform:uppercase;
     }
     tr:last-child td{ border-bottom:none; }
 
-    .tags{
-      display:flex; flex-wrap:wrap; gap:8px; margin-top:10px;
-    }
+    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
     .tag{
       padding:6px 10px;
       border-radius:999px;
@@ -371,10 +343,8 @@
       font-weight:900;
     }
 
-    /* Order section */
-    .order{
-      padding:16px;
-    }
+    /* ORDER */
+    .order{ padding:16px; }
     .order h2{ margin:10px 0 6px; font-size:22px; }
     .notice{
       margin-top:10px;
@@ -420,7 +390,7 @@
       padding-bottom:2px;
     }
 
-    /* Footer */
+    /* FOOTER */
     footer{
       margin-top:12px;
       padding:14px 16px;
@@ -436,7 +406,7 @@
       font-weight:900;
     }
 
-    /* Responsive */
+    /* RESPONSIVE */
     @media (max-width: 920px){
       .layout{ grid-template-columns: 1fr; }
       .sidebar{ position:relative; top:auto; }
@@ -495,7 +465,7 @@
           <a href="#sizes">⚖️ Size & weight <span class="pill">45g</span></a>
           <a href="#storage">🧊 Storage <span class="pill">tips</span></a>
           <a href="#impact">🌿 Animals + Sumatra <span class="pill">30%</span></a>
-          <a href="#contact">☎️ Contact <span class="pill">DM</span></a>
+          <a href="#contact">☎️ Contact <span class="pill">email</span></a>
         </div>
       </aside>
 
@@ -513,13 +483,13 @@
               <h1 class="big-title">Classic Chocolate Cookie</h1>
               <p class="subtitle">
                 Thick, soft-centered cookies with deep chocolate flavor.
-                Made using your premium ingredients (listed clearly below) —
+                Made using premium ingredients (listed clearly below) —
                 and every order supports animals in Sumatra.
               </p>
 
               <div class="hero-actions">
                 <a class="btn" href="#order">Order in 30 seconds</a>
-                <a class="btn2" href="#ingredients">See ingredients</a>
+                <a class="btn2" href="https://forms.gle/35dVosUdpU4NBHYU7" target="_blank" rel="noreferrer">Open Google Form</a>
                 <a class="btn2" href="#impact">Why Sumatra?</a>
               </div>
             </div>
@@ -628,7 +598,7 @@
               This is part of the brand, so it appears everywhere.
               <ul>
                 <li><strong>30% of profit</strong> is donated to support animals in <strong>Sumatra</strong>.</li>
-                <li>We’ll post updates on Instagram (proof/receipts) in highlights.</li>
+                <li>We’ll post updates (proof/receipts) in Instagram highlights.</li>
               </ul>
             </div>
             <div class="tags">
@@ -648,13 +618,12 @@
 
           <h2>Order</h2>
           <div class="small">
-            Fill the form → it will open a ready-to-send message so it <strong>always works</strong>.
+            Choose one: fill the Google Form, or submit below (opens an email draft).
           </div>
 
-          <!-- OPTIONAL LINKS (replace these) -->
-          <div class="notice">
-            OPTIONAL: If you have a Google Form, replace <strong>YOUR_GOOGLE_FORM_LINK</strong> in the code.
-            <br/>OPTIONAL: Replace WhatsApp with your real number in <strong>https://wa.me/62XXXXXXXXXXX</strong>.
+          <div class="hero-actions" style="margin-top:10px;">
+            <a class="btn" href="https://forms.gle/35dVosUdpU4NBHYU7" target="_blank" rel="noreferrer">Order via Google Form</a>
+            <a class="btn2" href="#emailOrder">Order via Email</a>
           </div>
 
           <form class="form" id="orderForm">
@@ -664,8 +633,8 @@
             </div>
 
             <div>
-              <label for="contact">WhatsApp / Email</label>
-              <input id="contact" required placeholder="+62… or email" />
+              <label for="contact">Your email (so I can reply)</label>
+              <input id="contact" required placeholder="example@gmail.com" />
             </div>
 
             <div>
@@ -688,19 +657,14 @@
               </select>
             </div>
 
-            <div class="full">
+            <div class="full" id="emailOrder">
               <label for="note">Notes (address / time)</label>
               <textarea id="note" placeholder="Write your address + preferred time."></textarea>
             </div>
 
             <div class="form-actions">
-              <button class="btn" type="submit">Submit order</button>
-
-              <a class="btn2" href="YOUR_GOOGLE_FORM_LINK" target="_blank" rel="noreferrer">
-                Open Google Form (optional)
-              </a>
-
-              <a class="link" href="#ingredients">See ingredients again</a>
+              <button class="btn" type="submit">Submit (opens email)</button>
+              <a class="link" href="https://forms.gle/35dVosUdpU4NBHYU7" target="_blank" rel="noreferrer">Or use Google Form</a>
             </div>
 
             <div class="notice">
@@ -713,17 +677,15 @@
         <section class="order" id="contact" aria-label="Contact section">
           <h2>Contact</h2>
           <div class="small">
-            Questions? Message us.
+            Email me anytime:
             <span style="display:inline-block; margin-left:8px;">
               <span class="impact-badge"><span class="impact-dot"></span>30% profit → animals in Sumatra</span>
             </span>
           </div>
 
           <div class="hero-actions" style="margin-top:12px;">
-            <!-- REPLACE THESE -->
-            <a class="btn2" href="https://instagram.com/" target="_blank" rel="noreferrer">Instagram</a>
-            <a class="btn2" href="https://wa.me/62XXXXXXXXXXX" target="_blank" rel="noreferrer">WhatsApp</a>
-            <a class="btn2" href="mailto:youremail@example.com">Email</a>
+            <a class="btn2" href="mailto:aiylacitacinta@gmail.com">Email</a>
+            <a class="btn2" href="https://forms.gle/35dVosUdpU4NBHYU7" target="_blank" rel="noreferrer">Google Form</a>
           </div>
         </section>
 
@@ -807,7 +769,7 @@
       }
     });
 
-    // Order form: always works using email draft (mailto)
+    // Order form -> opens EMAIL draft to your email (always works)
     document.getElementById("orderForm").addEventListener("submit", (e)=>{
       e.preventDefault();
 
@@ -819,10 +781,10 @@
 
       const subject = encodeURIComponent("Cookie Order — Classic Chocolate Cookie");
       const body = encodeURIComponent(
-`Hi! I want to order Aiyla Cookies 🍪
+`Hi Aiyla! I want to order your cookies 🍪
 
 Name: ${name}
-Contact: ${contact}
+My email: ${contact}
 Product: Classic Chocolate Cookie (45g each)
 Quantity: ${qty}
 Delivery: ${delivery}
@@ -832,8 +794,7 @@ Reminder: 30% of profit goes to animals in Sumatra 🐾
 `
       );
 
-      // CHANGE THIS to your email:
-      const toEmail = "youremail@example.com";
+      const toEmail = "aiylacitacinta@gmail.com";
       window.location.href = `mailto:${toEmail}?subject=${subject}&body=${body}`;
     });
   </script>
